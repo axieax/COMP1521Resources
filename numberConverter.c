@@ -14,12 +14,9 @@ void printBinary(int number)
             putchar('1');
             found = true;
         }
-        else
+        else if (found)
         {
-            if (found)
-            {
-                putchar('0');
-            }
+            putchar('0');
         }
 
         mask = mask >> 1;
