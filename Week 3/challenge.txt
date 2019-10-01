@@ -1,0 +1,17 @@
+Disclaimer: I don't know the actual solution to the challenge exercise. These are my discoveries.
+
+example...
+5.626 has exponent 2^2
+0 10000001 01101000000000000000000
+
+fraction has first 2 bits (since power = 2) for integer part
+rest for decimal part
+01 101
+
+integer is trivial, it is just 2^2 + 0b01 = 5
+
+you want to represent the fraction in integer form... here's a way (theres a pattern)
+fraction is (1 * 5 * 10^2) + (0 * 5*5*10^1) + (1 * 5*5*5*10^0) = 625
+
+answer = integer.fraction
+       = 5.625
