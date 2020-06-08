@@ -1,20 +1,21 @@
 #include <stdio.h>
+#include <stdint.h>
 #include <stdbool.h> // <---- include this for booleans in C !
 
-void printBinary(int number)
+void printBinary(uint32_t number)
 {
     printf("Binary = ");
-    unsigned int mask = 1 << (sizeof(int) * 8 - 1); // This is binary number 1000 0000 0000 0000 0000 0000 0000 0000
-    bool found = false;                             // This variable indicates if we have reached a 1, to prevent printing leading zeroes.
+    uint32_t mask = 1 << (sizeof(uint32_t) * 8 - 1); // This is binary number 1000 0000 0000 0000 0000 0000 0000 0000
+    bool isFound = false;                            // This variable indicates if we have reached a 1, to prevent printing leading zeroes.
 
-    for (int i = 0; i < sizeof(int) * 8; i++)
+    for (int i = 0; i < sizeof(uint32_t) * 8; i++)
     {
-        if ((mask & number) != 0)
+        if (mask & number)
         {
             putchar('1');
-            found = true;
+            isFound = true;
         }
-        else if (found)
+        else if (isFound)
         {
             putchar('0');
         }
@@ -22,7 +23,7 @@ void printBinary(int number)
         mask = mask >> 1;
     }
 
-    if (!found)
+    if (!isFound)
     {
         putchar('0'); // The case where the entire number is 0, just print 0.
     }
@@ -30,7 +31,7 @@ void printBinary(int number)
     putchar('\n');
 }
 
-int main(void)
+int main()
 {
     int number = 42;          // Decimal
     //int number = 0x2A;      // Hexadecimal - put 0x in front

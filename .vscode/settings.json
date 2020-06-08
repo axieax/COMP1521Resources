@@ -2,5 +2,6 @@
     "files.associations": {
         "functional": "c",
         "cstdlib": "c"
-    }
+    },
+    "editor.fontSize": 20
 }
