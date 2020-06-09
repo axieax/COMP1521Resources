@@ -3,4 +3,37 @@ Say you wanted to convert 100 to binary/hex/octal and you didn't have the luxury
 Just keep dividing the number by the base and append the remainder to the "answer"
 reverse it at the end
 
-insert answer here
+100
+/2 = 50r0
+answer = 0
+
+50
+/2 = 25r0
+answer = 00
+
+25
+/2 = 12r1
+answer = 001
+
+12
+/2 = 6r0
+answer = 0010
+
+6
+/2 = 3r0
+answer = 00100
+
+
+3
+/2 = 1r1
+answer = 001001
+
+1
+/2 = 0r1
+answer = 0010011
+
+then reverse the answer you got...
+the real answer = 1100100
+
+you can do the same with hexadecimal and octal, just divide it by 16 (for hex) or 8 (for octal) instead.
+however if you have printf() available using that would be better.
