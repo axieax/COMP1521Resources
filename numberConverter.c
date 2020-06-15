@@ -5,8 +5,8 @@
 void printBinary(uint32_t number)
 {
     printf("Binary = ");
-    uint32_t mask = 1 << (sizeof(uint32_t) * 8 - 1); // This is binary number 1000 0000 0000 0000 0000 0000 0000 0000
-    bool isFound = false;                            // This variable indicates if we have reached a 1, to prevent printing leading zeroes.
+    uint32_t mask = 1u << (sizeof(uint32_t) * 8 - 1); // This is binary number 1000 0000 0000 0000 0000 0000 0000 0000
+    bool isFound = false;                             // This variable indicates if we have reached a 1, to prevent printing leading zeroes.
 
     for (int i = 0; i < sizeof(uint32_t) * 8; i++)
     {
