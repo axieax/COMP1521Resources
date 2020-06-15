@@ -9,10 +9,10 @@ Word reverseBits(Word w)
     Word result = 0;
     for (int i = 0; i < 32; i++) {
         // Is the ith bit (from the left hand side) set?
-        Word mask = 1 << (31 - i);
+        Word mask = 1u << (31 - i);
         if (w & mask) {
             // Now set the ith bit from the right hand side in result
-            Word anotherMask = 1 << i;
+            Word anotherMask = 1u << i;
             result = result | anotherMask;
         }
     }
