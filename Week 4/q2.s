@@ -1,7 +1,8 @@
-.data
-msg: .asciiz "Enter a number: "
+    .data
+msg:
+    .asciiz "Enter a number: "
 
-.text
+    .text
 main:
     # let $t0 store x
     # let $t1 store y

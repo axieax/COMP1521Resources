@@ -1,8 +1,10 @@
-.data
-msg: .asciiz "Enter a number: "
-too_big_msg: .asciiz "square too big for 32 bits\n"
+    .data
+msg: 
+    .asciiz "Enter a number: "
+too_big_msg: 
+    .asciiz "square too big for 32 bits\n"
 
-.text
+    .text
 main:
     # let $t0 store x
     # let $t1 store y

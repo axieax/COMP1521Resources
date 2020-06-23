@@ -1,7 +1,4 @@
-.data
-
-
-.text
+    .text
 main:
     
     li $t0, 24 # x = 24
