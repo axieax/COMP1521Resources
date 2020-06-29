@@ -33,7 +33,8 @@ end_while:
     lw   $ra, 0($sp)   # restore $ra
     addi $sp, $sp, 4   # restore sp
 
-    jr $ra
+    li $v0, 0
+    jr $ra # return 0
 
 # function - prints 10 numbers from numbers array seperated by spaces
 # NOTE: numbers provided as argument in register $a0
