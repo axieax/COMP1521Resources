@@ -7,7 +7,7 @@ void print_numbers(int *numbers);
 
 int main(void) {
     int i;
-    int numbers[10] = {0};
+    int numbers[10];
 
     i = 0;
     while (i < 10) {

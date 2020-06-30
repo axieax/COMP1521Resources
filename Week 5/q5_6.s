@@ -1,6 +1,6 @@
     .data
 numbers:
-    .word 0 0 0 0 0 0 0 0 0 0
+    .space 40 # int numbers[10]
 
     .text
 main:
@@ -8,26 +8,29 @@ main:
     sw   $ra, 0($sp)   # save return address
 
     li $t0, 0 # i = 0
-while:
-    bge $t0, 10, end_while
+while1:
+    bge $t0, 10, end_while1 # if (i >= 10) goto end_while
 
     li $v0, 5
-    syscall
+    syscall # scanf
 
-    # $v0 contains scanned number
+    # NOW, the scanned integer is inside $v0
 
-    la $t1, numbers # numbers
-    mul $t2, $t0, 4 # offset = 4*i
-    add $t1, $t1, $t2 # $ti stores numbers + offset
+    mul $t1, $t0, 4 # offset = i * 4
+    sw $v0, numbers($t1) # this is numbers + i*4, store into &numbers[i]
 
-    sw $v0, ($t1)
+    addi $t0, $t0, 1 # i++
+    j while1
+end_while1:
 
-    addi $t0, $t0, 1
-    j while
-end_while:
+    li $s0, 42
 
     la $a0, numbers
-    jal print_numbers # call print_numbers(numbers)
+    jal print_numbers # print_numbers(numbers)
+    # notice!! jal overwrites $ra when you call the function
+
+
+    # whats value of $s0 here???
 
     # clean up stack frame
     lw   $ra, 0($sp)   # restore $ra
@@ -39,40 +42,39 @@ end_while:
 # function - prints 10 numbers from numbers array seperated by spaces
 # NOTE: numbers provided as argument in register $a0
 print_numbers:
-    addi $sp, $sp, -12 # create stack frame
-    sw   $ra, 8($sp)   # save return address
-    sw   $s0, 4($sp)   # save $s0
-    sw   $s1, 0($sp)   # save $s1
 
-    # NOTE: i'm using $s0 and $s1 for fun, we could have used $t registers it would have been fine since we don't call any functions
-    move $s0, $a0 # move argument into s0 so we don't overwrite it when doing syscalls
-    li $s1, 0 # i = 0 
-for:
-    bge $s1, 10, end_for
+    addi $sp, $sp, -8  # create stack frame
+    sw   $ra, 0($sp)   # save return address
+    sw   $s0, 4($sp)   # save return address
+   
+    move $s0, $a0 # move $a0 into $s0 so we dont overwrite when doing syscalls
+    li $t0, 0 # i = 0
+while2:
+    bge $t0, 10, end_while2 # if (i >= 10) goto end_while
 
-    mul $t0, $s1, 4 # offset = 4*i
-    add $t0, $s0, $t0 # $ti stores numbers + offset
+    mul $t1, $t0, 4 # offset = i * 4
+    add $t2, $s0, $t1 # $t2 = numbers + offset
+    lw $t3, ($t2) # load integer from address numbers + offset
 
-    lw $a0, ($t0) # load numbers[i] into $t1
     li $v0, 1
-    syscall # printf("%d", numbers[i])
+    move $a0, $t3
+    syscall # printf("%d")
 
-    li $a0, ' '
     li $v0, 11
+    li $a0, ' '
     syscall # putchar(' ')
 
-    addi $s1, $s1, 1
-    j for
-end_for:
+    addi $t0, $t0, 1 # i++
+    j while2
+end_while2:
 
-    li $a0, 10 # '\n'
     li $v0, 11
-    syscall # putchar('\n')
+    li $a0, 10 # '\n'
+    syscall # putchar(' ')
 
-                       # clean up stack frame
-    lw   $s1, 0($sp)   # restore $s1
-    lw   $s0, 4($sp)   # restore $s0
-    lw   $ra, 8($sp)   # restore $ra
-    addi $sp, $sp, 12  # restore sp
+    # clean up stack frame
+    lw   $s0, 4($sp)
+    lw   $ra, 0($sp)   # restore $ra
+    addi $sp, $sp, 8   # restore sp
 
     jr  $ra # return
