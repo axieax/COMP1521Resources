@@ -17,7 +17,7 @@ while1:
     # NOW, the scanned integer is inside $v0
 
     mul $t1, $t0, 4 # offset = i * 4
-    sw $v0, numbers($t1) # this is numbers + i*4, store into &numbers[i]
+    sw $v0, numbers($t1) # this is numbers + offset, store $v0 into numbers[i]
 
     addi $t0, $t0, 1 # i++
     j while1
@@ -48,6 +48,8 @@ print_numbers:
     sw   $s0, 4($sp)   # save return address
    
     move $s0, $a0 # move $a0 into $s0 so we dont overwrite when doing syscalls
+    # note im using $s0 for fun, could have just used a $t register
+    
     li $t0, 0 # i = 0
 while2:
     bge $t0, 10, end_while2 # if (i >= 10) goto end_while
