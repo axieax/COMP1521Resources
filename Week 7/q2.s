@@ -5,7 +5,7 @@ v2: .space 1
 v3: .byte 'a'
 v4: .space 8
 v5: .space 80
-v6: 
-v7: 
-v8: 
-v9: 
+v6: .space 200 # 5 * 10 = 50 elements * 4
+v7: .space 8
+v8: .space 32
+v9: .space 16 # .space 8

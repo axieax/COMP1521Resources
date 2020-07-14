@@ -64,4 +64,31 @@ end_for_i:
     # $a3 is factor
 change:
 
+    li $t0, 0 # row = 0
+for1:
+    bge $t0, $a0, end_for1 # if (row >= nrows) goto end_for1
+
+    li $t1, 0 # col = 0
+for2:
+    bge $t1, $a1, end_for2 # if (col >= ncols) goto end_for2
+
+    # offset = row * ncols + col
+    mul $t2, $t0, $a1 # offset = row * ncols
+    add $t2, $t2, $t1 #       += col
+    mul $t2, $t2, 4   #       *= 4
+
+    lw $t3, matrix($t2) # load M[offset]
+
+    mul $t3, $a3, $t3 # factor * M[row][col]
+
+    sw $t3, matrix($t2) # store factor * M[row][col]
+
+    addi $t1, $t1, 1 # col++
+    j for2
+end_for2:
+
+    addi $t0, $t0, 1 # row++
+    j for1
+end_for1:
+
     jr $ra
