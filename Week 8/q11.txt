@@ -1,0 +1,16 @@
+You can work this out by looking at man 3 fopen, and then using the appropriate flags to open().
+
+open(FilePath, O_RDONLY)
+Opens for reading; fails if the file doesn't exist or isn't readable.
+
+open(FilePath, O_WRONLY|O_CREAT|O_APPEND)
+Opens for writing and appending, creating the file if it doesn't exist.
+
+open(FilePath, O_WRONLY|O_CREAT|O_TRUNC)
+Opens for writing; creates the file if it doesn't exist, otherwise truncates it.
+
+open(FilePath, O_RDWR)
+Opens for reading and writing; fails if the file doesn't exist.
+
+open(FilePath, O_RDWR|O_CREAT|O_TRUNC)
+Opens for reading and writing; creates the file if it doesn't exist, otherwise truncates it.
