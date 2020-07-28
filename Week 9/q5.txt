@@ -1,0 +1,15 @@
+a. COMP1521's web directory is /home/cs1521/web
+
+b. ~jas is shorthand for /home/jas, so ~jas/../.. is the root directory (/)
+
+c. The link to the parent directory is also stored as an entry in the directory structure, called ..
+
+d. cat is a regular file, which happens to contain executable machine code.
+
+e. home is a directory.
+
+f. tty0 is a character special file, a file that represents a device which can read and write a byte-stream, which is typically interpreted as characters.
+
+g. A symbolic link is a special kind of file that simply contains the name of another file.
+
+h. Symbolic links produce a graph because they allow arbitrary links between filesystem objects. Without symlinks, the only "connections" in the filesystem are parent/child links, which produce a tree.
