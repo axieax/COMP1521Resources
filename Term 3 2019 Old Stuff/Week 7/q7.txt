@@ -1,7 +1,0 @@
-FILE* f = fopen("pathname", "r")
-
-
-Call strerror(errno)
-Call perror("")
-Call err(1, "")
-Call error(1, errno, "")
