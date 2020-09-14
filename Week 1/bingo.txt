@@ -1,4 +1,4 @@
-Find 10 people to match with the items below.
+Find 5 people to match with the items below.
 First person to do that and say BINGO! in the main room wins and the game ends.
 
 hasn't had breakfast today
@@ -16,5 +16,6 @@ has met someone famous
 regularly stays up past 1 am
 is wearing pyjama bottoms
 is not in Sydney right now
-currently studying COMP2041
+did COMP2041 last term
 currently studying COMP2521
+is possibly coming to F2F tute/lab next week
