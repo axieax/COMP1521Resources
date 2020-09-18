@@ -11,10 +11,10 @@ int main(void)
 
     // what do these statements print ?
     n[0]++;
-    printf("%d\n", *p);
+    printf("%d\n", *p); // 43
     p++;
-    printf("%p\n", p);
-    printf("%d\n", *p);
+    printf("%p\n", p);  // 0x7fff00000004
+    printf("%d\n", *p); // 23
 
     return 0;
 }

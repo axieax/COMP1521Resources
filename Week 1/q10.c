@@ -1,19 +1,17 @@
 #include <stdio.h>
 
-void f(int* nums, int i) {
-    if (i == 10) {
+void print_array(int nums[], int i)
+{
+    if (i == 10)
         return;
-    }
 
     printf("%d\n", nums[i]);
-    f(nums, i+1);
+    print_array(nums, i + 1);
 }
 
-int main()
+int main(void)
 {
     int nums[] = {1, 2, 3, 4, 5, 6, 7, 8, 9, 10};
-
-    f(nums, 0);
-
+    print_array(nums, 0);
     return 0;
 }
