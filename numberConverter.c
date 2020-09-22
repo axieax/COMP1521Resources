@@ -33,7 +33,7 @@ void printBinary(uint32_t number)
 
 int main()
 {
-    int number = 42;          // Decimal
+    int number = 42; // Decimal
     //int number = 0x2A;      // Hexadecimal - put 0x in front
     //int number = 052;       // Octal - put 0 in front
     //int number = 0b101010;  // Binary - put 0b in front

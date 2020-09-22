@@ -7,15 +7,12 @@ typedef uint32_t Word;
 Word reverseBits(Word w)
 {
     Word result = 0;
-    for (int i = 0; i < 32; i++)
-    {
-        // Is the ith bit (from the left hand side) set?
+    for (int i = 0; i < 32; i++) {
+        // Check ith bit from LHS of w is set to 1
         Word mask = 1u << (31 - i);
-        if (w & mask)
-        {
-            // Now set the ith bit from the right hand side in result
+        if (mask & w) {
             Word anotherMask = 1u << i;
-            result = result | anotherMask;
+            result |= anotherMask;
         }
     }
     return result;
