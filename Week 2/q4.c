@@ -11,17 +11,17 @@ int main()
     unsigned char device;
 
     // a
-    device = READING | LOCKED | AS_BYTES;
+    device = READING | AS_BYTES | LOCKED;
 
     // b
-    device = ;
+    device = WRITING | AS_BLOCKS | LOCKED;
 
     // c
-    device = ;
+    device = device | LOCKED;
 
     // d
-    device = ;
+    device = device & ~LOCKED;
 
     // e
-    device = ;
+    device = (device & ~READING) | WRITING;
 }
