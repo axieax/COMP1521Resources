@@ -24,4 +24,7 @@ int main()
 
     // e
     device = (device & ~READING) | WRITING;
+
+    // f
+    device = device ^ (READING | WRITING);
 }
