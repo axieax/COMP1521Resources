@@ -1,0 +1,6 @@
+Watch this video from Emily about stack frames: https://www.dropbox.com/s/4yn35q7icinb5kg/Stack_Frames.MP4?dl=0
+You need to do this for $ra register when calling functions. 
+You will want to preserve your $s registers across functions calls.
+
+Note that video also takes advantage of $fp, for frame pointer. However it is not necessary to use it in this course,
+you can have all of your operations be relative to $sp.
