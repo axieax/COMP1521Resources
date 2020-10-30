@@ -17,7 +17,7 @@ main:
     li   $v0, 1
     syscall
 
-    li   $a0, '\n'      # printf("%c", '\n');
+    li   $a0, 10        # printf("%c", '\n');
     li   $v0, 11
     syscall
 
