@@ -1,38 +1,25 @@
-#include <stdio.h>
-#define NROWS 3
-#define NCOLS 4
+// sum 4 numbers using function calls
 
-void change(int nrows, int ncols, int M[nrows][ncols], int factor);
+#include <stdio.h>
+
+int sum4(int a, int b, int c, int d);
+int sum2(int x, int y);
 
 int main(void)
 {
-    int matrix[NROWS][NCOLS] = {
-        {0, 1, 2, 3},
-        {4, 5, 6, 7},
-        {8, 9, 10, 11}};
-
-    change(NROWS, NCOLS, matrix, 42);
-
-    for (int i = 0; i < NROWS; i++)
-    {
-        for (int j = 0; j < NCOLS; j++)
-        {
-            printf("%d ", matrix[i][j]);
-        }
-
-        putchar('\n');
-    }
-
+    int z = sum4(11, 13, 17, 19);
+    printf("%d\n", z);
     return 0;
 }
 
-void change(int nrows, int ncols, int M[nrows][ncols], int factor)
+int sum4(int a, int b, int c, int d)
 {
-    for (int row = 0; row < nrows; row++)
-    {
-        for (int col = 0; col < ncols; col++)
-        {
-            M[row][col] = factor * M[row][col];
-        }
-    }
+    int e = sum2(a, b);
+    int f = sum2(c, d);
+    return sum2(e, f);
+}
+
+int sum2(int x, int y)
+{
+    return x + y;
 }
